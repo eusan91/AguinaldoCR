@@ -6,18 +6,22 @@
     tools:context="com.santamaria.aguinaldocr.MainActivity">
 
     <ListView
-        android:id="@+id/listViewMeses"
+        android:id="@+id/listViewMonths"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/botonCalcular">
-    </ListView>
+        android:layout_above="@+id/buttonCalculate"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:scrollbars="horizontal"></ListView>
 
     <Button
-        android:id="@+id/botonCalcular"
+        android:id="@+id/buttonCalculate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Calcular aguinaldo"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Calcular aguinaldo" />
+        android:layout_marginBottom="13dp"
+        android:onClick="ComputeAguinaldo"/>
 
 </RelativeLayout>
