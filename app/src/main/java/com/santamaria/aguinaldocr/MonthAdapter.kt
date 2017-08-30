@@ -10,6 +10,7 @@ import android.widget.BaseAdapter
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import org.w3c.dom.Text
 import java.util.*
 
 /**
@@ -47,13 +48,18 @@ class MonthAdapter(val monthList : ArrayList<Month>, val context : Context, val 
         }
 
         viewHolder.month.text = monthList[position].month
-        if (monthList[position].amount > 0)
         viewHolder.amount.setText(monthList[position].amount.toString())
-        viewHolder.amount.setTag(position)
+        if (monthList[position].amount > 0)
+            viewHolder.amount.setText(monthList[position].amount.toString())
+        else{
+            viewHolder.amount.setText("")
+        }
 
-        viewHolder.amount.addTextChangedListener(object : TextWatcher {
+        viewHolder.amount.tag = position
 
-            override fun afterTextChanged(p0: Editable?) {
+        val focus = object : View.OnFocusChangeListener {
+
+            override fun onFocusChange(p0: View?, p1: Boolean) {
 
                 var amount = viewHolder.amount.text.toString()
 
@@ -62,38 +68,21 @@ class MonthAdapter(val monthList : ArrayList<Month>, val context : Context, val 
                 else {
                     monthList[viewHolder.amount.tag as Int].amount = 0.0
                 }
-                //Toast.makeText(context, viewHolder.amount.text, Toast.LENGTH_SHORT).show()
-                //Toast.makeText(context, viewHolder.amount.tag.toString(), Toast.LENGTH_SHORT).show()
-            }
-
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
 
             }
+        }
 
-        })
-
-
+        viewHolder.amount.setOnFocusChangeListener(focus)
 
         return view
     }
 
     private class ViewHolder(row: View, context: Context){
-        var month : TextView
+        var month : TextView = row.findViewById(R.id.monthId) as TextView
         var amount: EditText
 
         init {
-            month = row.findViewById(R.id.monthId) as TextView
             amount = row.findViewById(R.id.amountId) as EditText
-
-            amount.setOnClickListener(View.OnClickListener {
-
-            })
-
-
         }
     }
 
