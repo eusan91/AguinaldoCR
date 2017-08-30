@@ -6,12 +6,14 @@ import android.os.PersistableBundle
 import android.view.View
 import android.widget.ListView
 import android.widget.Toast
+import java.text.DecimalFormat
 import java.util.*
 import java.util.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
     var monthList : ArrayList<Month> = ArrayList()
+    var df : DecimalFormat = DecimalFormat("#,###,###.##")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +37,18 @@ class MainActivity : AppCompatActivity() {
 
     fun ComputeAguinaldo(v: View): Unit {
 
-        Toast.makeText(this, "Su aguinaldo será de:  ₡" + 100, Toast.LENGTH_LONG).show()
+        var totalAmountSalaries : Double = 0.0
+        var totalMonth : Int = 0
+
+        for (item: Month in monthList){
+
+            if (item.amount > 0) totalMonth++
+
+            totalAmountSalaries += item.amount
+
+        }
+
+        Toast.makeText(this, "Su aguinaldo será de:  ₡" +  df.format(totalAmountSalaries/12), Toast.LENGTH_LONG).show()
 
     }
 

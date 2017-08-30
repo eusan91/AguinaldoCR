@@ -47,6 +47,7 @@ class MonthAdapter(val monthList : ArrayList<Month>, val context : Context, val 
         }
 
         viewHolder.month.text = monthList[position].month
+        if (monthList[position].amount > 0)
         viewHolder.amount.setText(monthList[position].amount.toString())
         viewHolder.amount.setTag(position)
 
@@ -54,7 +55,13 @@ class MonthAdapter(val monthList : ArrayList<Month>, val context : Context, val 
 
             override fun afterTextChanged(p0: Editable?) {
 
-                monthList[viewHolder.amount.tag as Int].amount = viewHolder.amount.text.toString().toDouble()
+                var amount = viewHolder.amount.text.toString()
+
+                if (amount.isNotBlank())
+                    monthList[viewHolder.amount.tag as Int].amount = amount.toDouble()
+                else {
+                    monthList[viewHolder.amount.tag as Int].amount = 0.0
+                }
                 //Toast.makeText(context, viewHolder.amount.text, Toast.LENGTH_SHORT).show()
                 //Toast.makeText(context, viewHolder.amount.tag.toString(), Toast.LENGTH_SHORT).show()
             }
@@ -68,6 +75,8 @@ class MonthAdapter(val monthList : ArrayList<Month>, val context : Context, val 
             }
 
         })
+
+
 
         return view
     }
