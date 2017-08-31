@@ -3,17 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.santamaria.aguinaldocr.MainActivity"
-    android:background="@drawable/background">
+    tools:context="com.santamaria.aguinaldocr.MainActivity">
 
     <ListView
         android:id="@+id/listViewMonths"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/buttonCalculate"
         android:divider="@null"
         android:dividerHeight="0dp"
-        android:scrollbars="horizontal"></ListView>
+        android:scrollbars="horizontal"
+        android:layout_above="@+id/buttonCalculate"></ListView>
 
     <Button
         android:id="@+id/buttonCalculate"
@@ -23,7 +22,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="13dp"
-        android:background="@drawable/button_design"
+        android:background="@drawable/background"
         android:padding="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
