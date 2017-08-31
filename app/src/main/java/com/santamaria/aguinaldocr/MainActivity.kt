@@ -1,8 +1,11 @@
 package com.santamaria.aguinaldocr
 
+import android.content.DialogInterface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Message
 import android.os.PersistableBundle
+import android.support.v7.app.AlertDialog
 import android.view.View
 import android.widget.ListView
 import android.widget.Toast
@@ -12,8 +15,9 @@ import java.util.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
-    var monthList : ArrayList<Month> = ArrayList()
-    var df : DecimalFormat = DecimalFormat("#,###,###.##")
+    private var monthList : ArrayList<Month> = ArrayList()
+    private var df : DecimalFormat = DecimalFormat("#,###,###.##")
+    private var year = Calendar.getInstance().get(Calendar.YEAR)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,16 +52,14 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        Toast.makeText(this, "Su aguinaldo será de:  ₡" +  df.format(totalAmountSalaries/12), Toast.LENGTH_LONG).show()
+        alertDialogResult(totalAmountSalaries/12)
+        //Toast.makeText(this, "Su aguinaldo será de:  ₡" +  df.format(totalAmountSalaries/12), Toast.LENGTH_LONG).show()
 
     }
 
     fun LoadList () {
 
-        //previous year
-        val year = Calendar.getInstance().get(Calendar.YEAR)-1
-
-        monthList.add(Month("Diciembre "+ year))
+        monthList.add(Month("Diciembre "+ (year-1)))
         monthList.add(Month("Enero"))
         monthList.add(Month("Febrero"))
         monthList.add(Month("Marzo"))
@@ -75,5 +77,17 @@ class MainActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle?) {
         super.onSaveInstanceState(outState)
         outState?.putParcelableArrayList("array",monthList)
+    }
+
+    fun alertDialogResult(aguinaldo : Double) {
+
+        val dialog : AlertDialog = AlertDialog.Builder(this@MainActivity).create()
+
+        dialog.setTitle("Aguinaldo del "+ year)
+        dialog.setMessage("Basado en los datos ingresados su Aguinaldo aproximado será de ₡ "+ df.format(aguinaldo))
+        dialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", DialogInterface.OnClickListener { dialogInterface, i ->  })
+
+        dialog.show()
+
     }
 }
