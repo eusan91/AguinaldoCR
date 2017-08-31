@@ -11,13 +11,14 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import org.w3c.dom.Text
+import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
 import java.util.*
 
 /**
  * Created by Santamaria on 29/08/2017.
  */
-class MonthAdapter(val monthList : ArrayList<Month>, val context : Context, val layout : Int) : BaseAdapter() {
-
+class MonthAdapter(private val monthList : ArrayList<Month>, private val context : Context, private val layout : Int) : BaseAdapter() {
 
     override fun getItem(p0: Int): Any {
         return monthList[p0]
@@ -64,11 +65,10 @@ class MonthAdapter(val monthList : ArrayList<Month>, val context : Context, val 
                 var amount = viewHolder.amount.text.toString()
 
                 if (amount.isNotBlank())
-                    monthList[viewHolder.amount.tag as Int].amount = amount.toDouble()
+                    monthList[viewHolder.amount.tag as Int].amount = amount.toFloat()
                 else {
-                    monthList[viewHolder.amount.tag as Int].amount = 0.0
+                    monthList[viewHolder.amount.tag as Int].amount = 0F
                 }
-
             }
         }
 
