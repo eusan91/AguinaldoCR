@@ -65,9 +65,9 @@ class MonthAdapter(private val monthList : ArrayList<Month>, private val context
                 var amount = viewHolder.amount.text.toString()
 
                 if (amount.isNotBlank())
-                    monthList[viewHolder.amount.tag as Int].amount = amount.toFloat()
+                    monthList[viewHolder.amount.tag as Int].amount = amount.toDouble()
                 else {
-                    monthList[viewHolder.amount.tag as Int].amount = 0F
+                    monthList[viewHolder.amount.tag as Int].amount = 0.0
                 }
             }
         }

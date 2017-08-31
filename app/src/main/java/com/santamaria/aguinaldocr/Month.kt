@@ -11,20 +11,20 @@ import kotlin.properties.Delegates
 
 class Month(var month: String) : Parcelable {
 
-    var amount : Float = 0F
+    var amount : Double = 0.0
 
 
     constructor(parcel: Parcel) : this(parcel.readString()) {
-        amount = parcel.readFloat()
+        amount = parcel.readDouble()
     }
 
-    constructor(month: String, amount: Float) : this(month) {
+    constructor(month: String, amount: Double) : this(month) {
         this.amount = amount
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(month)
-        parcel.writeFloat(amount)
+        parcel.writeDouble(amount)
     }
 
     override fun describeContents(): Int {

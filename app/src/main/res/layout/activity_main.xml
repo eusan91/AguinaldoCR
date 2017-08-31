@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.santamaria.aguinaldocr.MainActivity">
+    tools:context="com.santamaria.aguinaldocr.MainActivity"
+    android:background="@drawable/background">
 
     <ListView
         android:id="@+id/listViewMonths"
@@ -22,6 +23,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="13dp"
+        android:background="@drawable/button_design"
+        android:padding="8dp"
         android:onClick="ComputeAguinaldo"/>
 
 </RelativeLayout>
