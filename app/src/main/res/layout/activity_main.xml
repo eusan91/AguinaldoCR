@@ -17,7 +17,7 @@
 
     <Button
         android:id="@+id/buttonCalculate"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Calcular aguinaldo"
         android:layout_alignParentBottom="true"
@@ -25,6 +25,8 @@
         android:layout_marginBottom="13dp"
         android:background="@drawable/button_design"
         android:padding="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:onClick="ComputeAguinaldo"/>
 
 </RelativeLayout>
