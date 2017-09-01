@@ -16,7 +16,8 @@
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:text="Noviembre"
-            android:textSize="17sp" />
+            android:textColor="#000"
+            android:textSize="@dimen/textsize" />
 
         <TextView
             android:id="@+id/currencyId"
@@ -24,8 +25,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="5dp"
+            android:textColor="#000"
             android:text="₡"
-            android:textSize="17sp" />
+            android:textSize="@dimen/textsize" />
 
         <EditText
             android:id="@+id/amountId"
