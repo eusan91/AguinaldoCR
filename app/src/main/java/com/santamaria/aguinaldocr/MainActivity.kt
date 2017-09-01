@@ -6,7 +6,10 @@ import android.os.Bundle
 import android.os.Message
 import android.os.PersistableBundle
 import android.support.v7.app.AlertDialog
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import android.view.Window
 import android.widget.ListView
 import android.widget.Toast
 import java.text.DecimalFormat
@@ -57,7 +60,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun LoadList () {
+    private fun LoadList () {
 
         monthList.add(Month("Diciembre "+ (year-1)))
         monthList.add(Month("Enero"))
@@ -79,15 +82,50 @@ class MainActivity : AppCompatActivity() {
         outState?.putParcelableArrayList("array",monthList)
     }
 
-    fun alertDialogResult(aguinaldo : Double) {
+    private fun alertDialogResult(aguinaldo : Double) {
 
         val dialog : AlertDialog = AlertDialog.Builder(this@MainActivity).create()
 
         dialog.setTitle("Aguinaldo del "+ year)
-        dialog.setMessage("Basado en los datos ingresados su Aguinaldo aproximado será de ₡ "+ df.format(aguinaldo))
+        dialog.setMessage("Basado en los datos ingresados su Aguinaldo aproximado será de \n\n ₡ "+ df.format(aguinaldo))
         dialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", DialogInterface.OnClickListener { dialogInterface, i ->  })
 
         dialog.show()
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+        menuInflater.inflate(R.menu.exit_menu, menu)
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+
+        when (item?.itemId) {
+
+            R.id.exit_menu_item -> alertExitMessage()
+
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+
+    private fun alertExitMessage() : Unit {
+
+        val alert = AlertDialog.Builder(this).create()
+
+        alert.setTitle("¿Salir?")
+        alert.setMessage("¿Seguro que desea cerrar la aplicación?")
+        alert.setButton(AlertDialog.BUTTON_POSITIVE, "Si", DialogInterface.OnClickListener { dialogInterface, i ->
+            this.finish()
+        })
+        alert.setButton(AlertDialog.BUTTON_NEGATIVE, "No", DialogInterface.OnClickListener { dialogInterface, i -> })
+
+        alert.show()
+
 
     }
 }
