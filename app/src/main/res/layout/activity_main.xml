@@ -28,6 +28,7 @@
         android:padding="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:textColor="#fff"
         android:onClick="ComputeAguinaldo"/>
 
 </RelativeLayout>

@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         setLogo()
-        
+
         val listViewMonth : ListView = findViewById(R.id.listViewMonths) as ListView
 
         if (savedInstanceState != null){
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setLogo() {
         var ab = supportActionBar
-        ab?.setLogo(R.drawable.ic_exit_menu)
+        ab?.setLogo(R.mipmap.ic_launcher)
         ab?.setDisplayUseLogoEnabled(true);
         ab?.setDisplayShowHomeEnabled(true);
     }
