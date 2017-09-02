@@ -119,13 +119,14 @@ class MainActivity : AppCompatActivity() {
 
         alert.setTitle("¿Salir?")
         alert.setMessage("¿Seguro que desea cerrar la aplicación?")
+        alert.setButton(AlertDialog.BUTTON_NEGATIVE, "No", DialogInterface.OnClickListener { dialogInterface, i -> })
         alert.setButton(AlertDialog.BUTTON_POSITIVE, "Si", DialogInterface.OnClickListener { dialogInterface, i ->
             this.finish()
         })
-        alert.setButton(AlertDialog.BUTTON_NEGATIVE, "No", DialogInterface.OnClickListener { dialogInterface, i -> })
-
         alert.show()
+    }
 
-
+    override fun onBackPressed() {
+        alertExitMessage()
     }
 }
