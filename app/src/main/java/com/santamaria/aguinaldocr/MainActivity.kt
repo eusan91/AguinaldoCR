@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Message
 import android.os.PersistableBundle
+import android.support.v7.app.ActionBar
 import android.support.v7.app.AlertDialog
 import android.view.Menu
 import android.view.MenuItem
@@ -26,6 +27,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setLogo()
+        
         val listViewMonth : ListView = findViewById(R.id.listViewMonths) as ListView
 
         if (savedInstanceState != null){
@@ -40,6 +43,13 @@ class MainActivity : AppCompatActivity() {
         var customAdapter = MonthAdapter(monthList, this, R.layout.month_amount_item)
         listViewMonth.adapter = customAdapter
 
+    }
+
+    private fun setLogo() {
+        var ab = supportActionBar
+        ab?.setLogo(R.drawable.ic_exit_menu)
+        ab?.setDisplayUseLogoEnabled(true);
+        ab?.setDisplayShowHomeEnabled(true);
     }
 
     fun ComputeAguinaldo(v: View): Unit {
