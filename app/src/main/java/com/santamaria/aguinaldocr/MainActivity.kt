@@ -97,7 +97,7 @@ class MainActivity : AppCompatActivity() {
         val dialog : AlertDialog = AlertDialog.Builder(this@MainActivity).create()
 
         dialog.setTitle("Aguinaldo del "+ year)
-        dialog.setMessage("Basado en los datos ingresados su Aguinaldo aproximado será de \n\n ₡ "+ df.format(aguinaldo))
+        dialog.setMessage("Basado en los datos ingresados, su aguinaldo aproximado será de \n\n ₡ "+ df.format(aguinaldo))
         dialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", DialogInterface.OnClickListener { dialogInterface, i ->  })
 
         dialog.show()
