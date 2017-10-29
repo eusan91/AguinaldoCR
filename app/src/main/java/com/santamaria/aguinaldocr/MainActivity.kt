@@ -13,6 +13,7 @@ import android.view.View
 import android.view.Window
 import android.widget.ListView
 import android.widget.Toast
+import com.kobakei.ratethisapp.RateThisApp
 import java.text.DecimalFormat
 import java.util.*
 import java.util.ArrayList
@@ -28,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         setLogo()
+
+        rateThisApp()
 
         val listViewMonth : ListView = findViewById(R.id.listViewMonths) as ListView
 
@@ -94,11 +97,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun alertDialogResult(aguinaldo : Double) {
 
-        val dialog : AlertDialog = AlertDialog.Builder(this@MainActivity).create()
+        val dialog : AlertDialog = AlertDialog.Builder(this).create()
 
         dialog.setTitle("Aguinaldo del "+ year)
         dialog.setMessage("Basado en los datos ingresados, su aguinaldo aproximado será de \n\n ₡ "+ df.format(aguinaldo))
-        dialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", DialogInterface.OnClickListener { dialogInterface, i ->  })
+        dialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", { dialogInterface, i ->  })
 
         dialog.show()
 
@@ -138,5 +141,23 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         alertExitMessage()
+    }
+
+    private fun rateThisApp() {
+
+        val config = RateThisApp.Config(3, 5)
+        config.setTitle(R.string.rate_title)
+        config.setMessage(R.string.rate_msg)
+        config.setYesButtonText(R.string.rate_now)
+        config.setNoButtonText(R.string.rate_no)
+        config.setCancelButtonText(R.string.rate_later)
+        RateThisApp.init(config)
+
+        //Monitor launch times and interval from installation
+        RateThisApp.onCreate(this)
+
+        //If the condition is satisfied "Rate this app" dialog will be shown
+        RateThisApp.showRateDialogIfNeeded(this)
+
     }
 }

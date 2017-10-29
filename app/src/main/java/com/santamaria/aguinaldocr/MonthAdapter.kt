@@ -40,7 +40,7 @@ class MonthAdapter(private val monthList : ArrayList<Month>, private val context
         if (convertView == null){
 
             view = LayoutInflater.from(context).inflate(layout, viewGroup, false)
-            viewHolder = ViewHolder(view, context)
+            viewHolder = ViewHolder(view)
             view.tag = viewHolder
 
         } else {
@@ -77,7 +77,7 @@ class MonthAdapter(private val monthList : ArrayList<Month>, private val context
         return view
     }
 
-    private class ViewHolder(row: View, context: Context){
+    private class ViewHolder(row: View){
         var month : TextView = row.findViewById(R.id.monthId) as TextView
         var amount: EditText
 
