@@ -21,14 +21,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Calcular aguinaldo"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="13dp"
+        android:layout_above="@+id/adView"
         android:background="@drawable/button_design"
         android:padding="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:textColor="#fff"
         android:onClick="ComputeAguinaldo"/>
+
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-8143704440549148/7200268872"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintLeft_toLeftOf="parent"
+        ads:layout_constraintRight_toRightOf="parent"
+        ads:layout_constraintVertical_bias="1.0"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"></com.google.android.gms.ads.AdView>
 
 </RelativeLayout>

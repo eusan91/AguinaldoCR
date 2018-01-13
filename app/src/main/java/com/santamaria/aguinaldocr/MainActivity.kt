@@ -13,6 +13,8 @@ import android.view.View
 import android.view.Window
 import android.widget.ListView
 import android.widget.Toast
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
 import com.kobakei.ratethisapp.RateThisApp
 import java.text.DecimalFormat
 import java.util.*
@@ -23,6 +25,9 @@ class MainActivity : AppCompatActivity() {
     private var monthList : ArrayList<Month> = ArrayList()
     private var df : DecimalFormat = DecimalFormat("#,###,###.##")
     private var year = Calendar.getInstance().get(Calendar.YEAR)
+
+    //Ad variables
+    private var mAdView: AdView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +51,10 @@ class MainActivity : AppCompatActivity() {
         var customAdapter = MonthAdapter(monthList, this, R.layout.month_amount_item)
         listViewMonth.adapter = customAdapter
 
+        //Ad Code
+        mAdView = findViewById(R.id.adView) as AdView
+        val adRequest = AdRequest.Builder().build()
+        mAdView!!.loadAd(adRequest)
     }
 
     private fun setLogo() {

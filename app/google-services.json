@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "97317373933",
+    "firebase_url": "https://aguinaldocr-a4b04.firebaseio.com",
+    "project_id": "aguinaldocr-a4b04",
+    "storage_bucket": "aguinaldocr-a4b04.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97317373933:android:7271a68c750bda76",
+        "android_client_info": {
+          "package_name": "com.santamaria.aguinaldocr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97317373933-g1thva7e8661rad6e3uog5i30eg3e2a4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.santamaria.aguinaldocr",
+            "certificate_hash": "18a3aa01099fa7ca4a7fb354219889df08fcd76b"
+          }
+        },
+        {
+          "client_id": "97317373933-l7oqaqt233doo51gdn743o9esk25cbjg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx30opOnKDaw0IvrJ3ovZogRwJIc0wZLo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "97317373933-l7oqaqt233doo51gdn743o9esk25cbjg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
