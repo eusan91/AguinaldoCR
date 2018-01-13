@@ -1,8 +1,7 @@
-package com.santamaria.aguinaldocr
+package com.santamaria.aguinaldocr.Model
 
 import android.os.Parcel
 import android.os.Parcelable
-import kotlin.properties.Delegates
 
 /**
  * Created by Santamaria on 28/08/2017.

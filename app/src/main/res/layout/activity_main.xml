@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.santamaria.aguinaldocr.MainActivity">
+    tools:context="com.santamaria.aguinaldocr.Activity.MainActivity">
 
     <ListView
         android:id="@+id/listViewMonths"
@@ -29,7 +29,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:textColor="#fff"
-        android:onClick="ComputeAguinaldo"/>
+        android:onClick="computeAguinaldo"/>
 
     <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView"

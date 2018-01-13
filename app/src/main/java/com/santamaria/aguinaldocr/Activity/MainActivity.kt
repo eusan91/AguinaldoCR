@@ -1,21 +1,19 @@
-package com.santamaria.aguinaldocr
+package com.santamaria.aguinaldocr.Activity
 
 import android.content.DialogInterface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Message
-import android.os.PersistableBundle
-import android.support.v7.app.ActionBar
 import android.support.v7.app.AlertDialog
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.view.Window
 import android.widget.ListView
-import android.widget.Toast
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.kobakei.ratethisapp.RateThisApp
+import com.santamaria.aguinaldocr.Adapter.MonthAdapter
+import com.santamaria.aguinaldocr.Model.Month
+import com.santamaria.aguinaldocr.R
 import java.text.DecimalFormat
 import java.util.*
 import java.util.ArrayList
@@ -44,11 +42,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (monthList.size == 0){
-            LoadList()
+            loadList()
         }
 
 
-        var customAdapter = MonthAdapter(monthList, this, R.layout.month_amount_item)
+        var customAdapter = MonthAdapter(monthList, this)
         listViewMonth.adapter = customAdapter
 
         //Ad Code
@@ -64,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         ab?.setDisplayShowHomeEnabled(true);
     }
 
-    fun ComputeAguinaldo(v: View): Unit {
+    fun computeAguinaldo(v: View): Unit {
 
         var totalAmountSalaries : Double = 0.0
         var totalMonth : Int = 0
@@ -82,9 +80,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun LoadList () {
+    private fun loadList () {
 
-        monthList.add(Month("Diciembre "+ (year-1)))
+        monthList.add(Month("Diciembre " + (year - 1)))
         monthList.add(Month("Enero"))
         monthList.add(Month("Febrero"))
         monthList.add(Month("Marzo"))
