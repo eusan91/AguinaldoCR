@@ -56,7 +56,7 @@
             android:id="@+id/checkBoxSameAmount"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Utilizar mismo monto"/>
+            android:text="@string/utilizar_mismo_monto"/>
     </LinearLayout>
 
 </LinearLayout>
