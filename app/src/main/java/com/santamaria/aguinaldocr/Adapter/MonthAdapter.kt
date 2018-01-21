@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import com.santamaria.aguinaldocr.Model.Month
 import com.santamaria.aguinaldocr.R
@@ -13,6 +14,8 @@ import java.util.*
  * Created by Santamaria on 29/08/2017.
  */
 class MonthAdapter(private val monthList : ArrayList<Month>, private val context : Context) : BaseAdapter() {
+
+    var isUpdatingAmounts = false
 
     override fun getItem(p0: Int): Any {
         return monthList[p0]
@@ -66,23 +69,29 @@ class MonthAdapter(private val monthList : ArrayList<Month>, private val context
 
             viewHolderPos0.amount.tag = position
 
-            val focus = View.OnFocusChangeListener { _, _ ->
 
-                var amount = viewHolderPos0.amount.text.toString()
+            if (viewHolderPos0.check.onFocusChangeListener == null ){
 
-                if (amount.isNotBlank() && amount.length > 1 )
-                    monthList[viewHolderPos0.amount.tag as Int].amount = amount.toDouble()
-                else {
-                    monthList[viewHolderPos0.amount.tag as Int].amount = 0.0
+                val focus = View.OnFocusChangeListener { _, _ ->
+
+                    var amount = viewHolderPos0.amount.text.toString()
+
+                    if (amount.isNotBlank())
+                        monthList[viewHolderPos0.amount.tag as Int].amount = amount.toDouble()
+                    else {
+                        monthList[viewHolderPos0.amount.tag as Int].amount = 0.0
+                    }
                 }
 
-            }
+                viewHolderPos0.amount.onFocusChangeListener = focus
 
-            viewHolderPos0.amount.onFocusChangeListener = focus
+            }
 
             viewHolderPos0.check.setOnClickListener({ view ->
 
                 val check = view as CheckBox
+
+                isUpdatingAmounts = true
 
                 if (check.isChecked && monthList[0].amount > 0 ){
 
@@ -95,6 +104,8 @@ class MonthAdapter(private val monthList : ArrayList<Month>, private val context
                     }
 
                     notifyDataSetChanged()
+                    hideSoftKeyboard(check)
+
                 }
 
             })
@@ -124,20 +135,38 @@ class MonthAdapter(private val monthList : ArrayList<Month>, private val context
 
             viewHolder.amount.tag = position
 
-            val focus = View.OnFocusChangeListener { _, _ ->
-                var amount = viewHolder.amount.text.toString()
+            if (viewHolder.amount.onFocusChangeListener == null){
 
-                if (amount.isNotBlank() && amount.length > 1 )
-                    monthList[viewHolder.amount.tag as Int].amount = amount.toDouble()
-                else {
-                    monthList[viewHolder.amount.tag as Int].amount = 0.0
+                val focus = View.OnFocusChangeListener { _, _ ->
+
+                    if (!isUpdatingAmounts) {
+                        var amount = viewHolder.amount.text.toString()
+
+                        if (amount.isNotBlank() && amount.length > 1)
+                            monthList[viewHolder.amount.tag as Int].amount = amount.toDouble()
+                        else {
+                            monthList[viewHolder.amount.tag as Int].amount = 0.0
+                        }
+                    } else {
+                        isUpdatingAmounts = false
+                    }
                 }
-            }
 
-            viewHolder.amount.onFocusChangeListener = focus
+                viewHolder.amount.onFocusChangeListener = focus
+
+            }
         }
 
         return view
+    }
+
+    private fun hideSoftKeyboard(view : View ){
+
+        // Check if no view has focus:
+        if (view != null) {
+            val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view?.windowToken, 0)
+        }
     }
 
     private class ViewHolder(row: View){

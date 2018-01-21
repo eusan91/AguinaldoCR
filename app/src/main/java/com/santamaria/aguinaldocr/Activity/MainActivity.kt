@@ -1,6 +1,5 @@
 package com.santamaria.aguinaldocr.Activity
 
-import android.content.DialogInterface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
@@ -8,8 +7,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.ListView
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
 import com.kobakei.ratethisapp.RateThisApp
 import com.santamaria.aguinaldocr.Adapter.MonthAdapter
 import com.santamaria.aguinaldocr.Model.Month
@@ -25,9 +22,6 @@ class MainActivity : AppCompatActivity() {
     private var year = Calendar.getInstance().get(Calendar.YEAR)
 
     private val ARRAY_LIST_PARAMETER = "array"
-
-    //Ad variables
-    private var mAdView: AdView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,10 +44,6 @@ class MainActivity : AppCompatActivity() {
         var customAdapter = MonthAdapter(monthList, this)
         listViewMonth.adapter = customAdapter
 
-        //Ad Code
-        mAdView = findViewById(R.id.adView) as AdView
-        val adRequest = AdRequest.Builder().build()
-        mAdView!!.loadAd(adRequest)
     }
 
     private fun setLogo() {
@@ -106,7 +96,7 @@ class MainActivity : AppCompatActivity() {
 
         val dialog : AlertDialog = AlertDialog.Builder(this).create()
 
-        dialog.setTitle(getString(R.string.dialog_result_title)+ year)
+        dialog.setTitle(getString(R.string.dialog_result_title)+ " "+ year)
         dialog.setMessage(getString(R.string.dialog_result_message) + "\n\n"+ getString(R.string.currency_symbol) + df.format(aguinaldo))
         dialog.setButton(AlertDialog.BUTTON_NEUTRAL, getString(R.string.dialog_result_button_ok), { _, _ ->  })
 

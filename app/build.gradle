@@ -8,8 +8,8 @@ android {
         applicationId "com.santamaria.aguinaldocr"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 4
-        versionName "3.0"
+        versionCode 5
+        versionName "4.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -21,7 +21,6 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.firebase:firebase-ads:11.0.4'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
