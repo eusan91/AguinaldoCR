@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:text="Noviembre"
             android:textColor="#000"
-            android:textSize="@dimen/textsize" />
+            android:textSize="@dimen/monthSize" />
 
         <TextView
             android:id="@+id/currencyId"
@@ -28,7 +28,7 @@
             android:layout_marginRight="5dp"
             android:textColor="#000"
             android:text="₡"
-            android:textSize="@dimen/textsize" />
+            android:textSize="@dimen/monthSize" />
 
         <EditText
             android:id="@+id/amountId"
@@ -56,7 +56,8 @@
             android:id="@+id/checkBoxSameAmount"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/utilizar_mismo_monto"/>
+            android:text="@string/utilizar_mismo_monto"
+            android:textSize="@dimen/sameAmountSize"/>
     </LinearLayout>
 
 </LinearLayout>

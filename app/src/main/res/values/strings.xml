@@ -6,4 +6,26 @@
     <string name="rate_no">No</string>
     <string name="rate_now">Calificar</string>
     <string name="utilizar_mismo_monto">Utilizar mismo monto</string>
+    <string name="diciembre">Diciembre </string>
+    <string name="enero">Enero</string>
+    <string name="febrero">Febrero</string>
+    <string name="marzo">Marzo</string>
+    <string name="abril">Abril</string>
+    <string name="mayo">Mayo</string>
+    <string name="junio">Junio</string>
+    <string name="julio">Julio</string>
+    <string name="agosto">Agosto</string>
+    <string name="setiembre">Setiembre</string>
+    <string name="octubre">Octubre</string>
+    <string name="noviembre">Noviembre</string>
+    <string name="dialog_result_title">Aguinaldo del</string>
+    <string name="dialog_result_message">Basado en los datos ingresados, su aguinaldo aproximado será de</string>
+    <string name="currency_symbol">₡</string>
+    <string name="dialog_result_button_ok">OK</string>
+    <string name="dialog_exit_title">¿Salir?</string>
+    <string name="dialog_exit_message">¿Seguro que desea cerrar la aplicación?</string>
+    <string name="dialog_exit_no">No</string>
+    <string name="dialog_exit_si">Si</string>
+    <string name="calcular_aguinaldo_btn">Calcular aguinaldo</string>
+    <string name="menu_text_salir">Salir de aplicación</string>
 </resources>

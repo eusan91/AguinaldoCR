@@ -5,6 +5,6 @@
     <item
         android:id="@+id/exit_menu_item"
         android:icon="@drawable/ic_exit_menu"
-        android:title="Salir de aplicación"
+        android:title="@string/menu_text_salir"
         app:showAsAction="always"/>
 </menu>

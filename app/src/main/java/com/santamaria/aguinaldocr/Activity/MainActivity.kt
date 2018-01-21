@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity() {
     private var df : DecimalFormat = DecimalFormat("#,###,###.##")
     private var year = Calendar.getInstance().get(Calendar.YEAR)
 
+    private val ARRAY_LIST_PARAMETER = "array"
+
     //Ad variables
     private var mAdView: AdView? = null
 
@@ -38,13 +40,12 @@ class MainActivity : AppCompatActivity() {
         val listViewMonth : ListView = findViewById(R.id.listViewMonths) as ListView
 
         if (savedInstanceState != null){
-            monthList = savedInstanceState.getParcelableArrayList("array")
+            monthList = savedInstanceState.getParcelableArrayList(ARRAY_LIST_PARAMETER)
         }
 
         if (monthList.size == 0){
             loadList()
         }
-
 
         var customAdapter = MonthAdapter(monthList, this)
         listViewMonth.adapter = customAdapter
@@ -76,39 +77,38 @@ class MainActivity : AppCompatActivity() {
         }
 
         alertDialogResult(totalAmountSalaries/12)
-        //Toast.makeText(this, "Su aguinaldo será de:  ₡" +  df.format(totalAmountSalaries/12), Toast.LENGTH_LONG).show()
 
     }
 
     private fun loadList () {
 
-        monthList.add(Month("Diciembre " + (year - 1)))
-        monthList.add(Month("Enero"))
-        monthList.add(Month("Febrero"))
-        monthList.add(Month("Marzo"))
-        monthList.add(Month("Abril"))
-        monthList.add(Month("Mayo"))
-        monthList.add(Month("Junio"))
-        monthList.add(Month("Julio"))
-        monthList.add(Month("Agosto"))
-        monthList.add(Month("Setiembre"))
-        monthList.add(Month("Octubre"))
-        monthList.add(Month("Noviembre"))
+        monthList.add(Month(getString(R.string.diciembre) + " " + (year - 1)))
+        monthList.add(Month(getString(R.string.enero)))
+        monthList.add(Month(getString(R.string.febrero)))
+        monthList.add(Month(getString(R.string.marzo)))
+        monthList.add(Month(getString(R.string.abril)))
+        monthList.add(Month(getString(R.string.mayo)))
+        monthList.add(Month(getString(R.string.junio)))
+        monthList.add(Month(getString(R.string.julio)))
+        monthList.add(Month(getString(R.string.agosto)))
+        monthList.add(Month(getString(R.string.setiembre)))
+        monthList.add(Month(getString(R.string.octubre)))
+        monthList.add(Month(getString(R.string.noviembre)))
 
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
         super.onSaveInstanceState(outState)
-        outState?.putParcelableArrayList("array",monthList)
+        outState?.putParcelableArrayList(ARRAY_LIST_PARAMETER, monthList)
     }
 
     private fun alertDialogResult(aguinaldo : Double) {
 
         val dialog : AlertDialog = AlertDialog.Builder(this).create()
 
-        dialog.setTitle("Aguinaldo del "+ year)
-        dialog.setMessage("Basado en los datos ingresados, su aguinaldo aproximado será de \n\n ₡ "+ df.format(aguinaldo))
-        dialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", { dialogInterface, i ->  })
+        dialog.setTitle(getString(R.string.dialog_result_title)+ year)
+        dialog.setMessage(getString(R.string.dialog_result_message) + "\n\n"+ getString(R.string.currency_symbol) + df.format(aguinaldo))
+        dialog.setButton(AlertDialog.BUTTON_NEUTRAL, getString(R.string.dialog_result_button_ok), { _, _ ->  })
 
         dialog.show()
 
@@ -121,7 +121,6 @@ class MainActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
 
         when (item?.itemId) {
@@ -132,17 +131,14 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-
-    private fun alertExitMessage() : Unit {
+    private fun alertExitMessage() {
 
         val alert = AlertDialog.Builder(this).create()
 
-        alert.setTitle("¿Salir?")
-        alert.setMessage("¿Seguro que desea cerrar la aplicación?")
-        alert.setButton(AlertDialog.BUTTON_NEGATIVE, "No", DialogInterface.OnClickListener { dialogInterface, i -> })
-        alert.setButton(AlertDialog.BUTTON_POSITIVE, "Si", DialogInterface.OnClickListener { dialogInterface, i ->
-            this.finish()
-        })
+        alert.setTitle(getString(R.string.dialog_exit_title))
+        alert.setMessage(getString(R.string.dialog_exit_message))
+        alert.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.dialog_exit_no), { _, _ -> })
+        alert.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.dialog_exit_si), { _, _ -> this.finish() })
         alert.show()
     }
 

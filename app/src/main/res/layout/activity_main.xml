@@ -20,7 +20,7 @@
         android:id="@+id/buttonCalculate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Calcular aguinaldo"
+        android:text="@string/calcular_aguinaldo_btn"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="13dp"
         android:layout_above="@+id/adView"
