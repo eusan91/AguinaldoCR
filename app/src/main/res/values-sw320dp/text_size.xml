@@ -1,5 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- activity main layout -->
+
     <dimen name="monthSize">15sp</dimen>
     <dimen name="sameAmountSize">12sp</dimen>
+
+    <dimen name="listViewDividerHeight">0dp</dimen>
+    <dimen name="listViewPaddingTop">8dp</dimen>
+    <dimen name="listViewPaddingBottom">8dp</dimen>
+
+    <dimen name="buttonCalculate_layout_marginBottom">13dp</dimen>
+    <dimen name="buttonCalculate_layout_marginLeft">8dp</dimen>
+    <dimen name="buttonCalculate_layout_marginRight">8dp</dimen>
+    <dimen name="buttonCalculate_padding">8dp</dimen>
+
+    <!-- first month layout-->
+
+    <dimen name="linearFirstMonth_layout_margin">4dp</dimen>
+    <dimen name="linearFirstMonth_weightsum">2</dimen>
+
+    <dimen name="textViewMonthFirstMonth_layoutwidth">130dp</dimen>
+
+    <dimen name="textViewCurrencyFirstMonth_marginleft">10dp</dimen>
+    <dimen name="textViewCurrencyFirstMonth_marginRight">5dp</dimen>
+
+    <dimen name="editTextAmountFirstMonth_hint">0</dimen>
+    <dimen name="editTextAmountFirstMonth_padding">8dp</dimen>
+
+    <dimen name="listView2marginTop">-5dp</dimen>
+
+    <!-- month amount layout-->
+
+    <dimen name="linearMonthAmount_weightsum">2</dimen>
+    <dimen name="linearMonthAmount_layout_margin">4dp</dimen>
+
+    <dimen name="textViewMonthAmount_layoutWidth">130dp</dimen>
+
+    <dimen name="textViewMonthAmount_layout_marginLeft">10dp</dimen>
+    <dimen name="textViewMonthAmount_layout_marginRight">5dp</dimen>
+
+    <dimen name="editTextAmountMonthAmount_hint">0</dimen>
+    <dimen name="editTextAmountMonthAmount_padding">8dp</dimen>
+
 </resources>

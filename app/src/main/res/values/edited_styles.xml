@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- activity main layout -->
+
+    <style name="listViewStyle">
+
+        <item name="android:divider"> @null </item>
+        <item name="android:dividerHeight">@dimen/listViewDividerHeight</item>
+        <item name="android:scrollbars">horizontal</item>
+        <item name="android:paddingTop">@dimen/listViewPaddingTop</item>
+        <item name="android:paddingBottom">@dimen/listViewPaddingBottom</item>
+
+    </style>
+
+    <style name="buttonCalculateStyle">
+
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginBottom"> @dimen/buttonCalculate_layout_marginBottom</item>
+        <item name="android:background">@drawable/button_design</item>
+        <item name="android:padding">@dimen/buttonCalculate_padding</item>
+        <item name="android:layout_marginLeft">@dimen/buttonCalculate_layout_marginLeft</item>
+        <item name="android:layout_marginRight">@dimen/buttonCalculate_layout_marginRight</item>
+        <item name="android:textColor">@color/colorWhite</item>
+
+    </style>
+
+    <!-- first month layout-->
+
+    <style name="firstMonthLinearLayoutStyle">
+
+        <item name="android:layout_margin">@dimen/linearFirstMonth_layout_margin</item>
+        <item name="android:gravity">center</item>
+        <item name="android:weightSum">@dimen/linearFirstMonth_weightsum</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="firstMonthTextViewMonthStyle">
+
+        <item name="android:layout_width">@dimen/textViewMonthFirstMonth_layoutwidth</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">@dimen/monthSize</item>
+    </style>
+
+    <style name="firstMonthTextViewCurrencyStyle">
+
+        <item name="android:layout_marginLeft">@dimen/textViewCurrencyFirstMonth_marginleft</item>
+        <item name="android:layout_marginRight">@dimen/textViewCurrencyFirstMonth_marginRight</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">@dimen/monthSize</item>
+        <item name="android:text">@string/currency_symbol</item>
+    </style>
+
+    <style name="firstMonthEditTextAmountStyle">
+
+        <item name="android:hint">@dimen/editTextAmountFirstMonth_hint</item>
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:textSize">@dimen/monthSize</item>
+        <item name="android:padding">@dimen/editTextAmountFirstMonth_padding</item>
+        <item name="android:background">@drawable/edit_text_design</item>
+
+    </style>
+
+    <style name="firstMonthListView2Style">
+
+        <item name="android:orientation">horizontal</item>
+        <item name="android:weightSum">@dimen/linearFirstMonth_weightsum</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginTop">@dimen/listView2marginTop</item>
+    </style>
+
+    <!-- month amount layout-->
+
+    <style name="monthLinearLayoutStyle">
+
+        <item name="android:layout_margin">@dimen/linearMonthAmount_layout_margin</item>
+        <item name="android:gravity">center</item>
+        <item name="android:weightSum">@dimen/linearMonthAmount_weightsum</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="monthTextViewMonthStyle">
+
+        <item name="android:layout_width">@dimen/textViewMonthAmount_layoutWidth</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">@dimen/monthSize</item>
+    </style>
+
+    <style name="monthTextViewCurrencyStyle">
+
+        <item name="android:layout_marginLeft">@dimen/textViewMonthAmount_layout_marginLeft</item>
+        <item name="android:layout_marginRight">@dimen/textViewMonthAmount_layout_marginRight</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">@dimen/monthSize</item>
+        <item name="android:text">@string/currency_symbol</item>
+    </style>
+
+    <style name="monthEditTextAmountStyle">
+
+        <item name="android:hint">@dimen/editTextAmountMonthAmount_hint</item>
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:textSize">@dimen/monthSize</item>
+        <item name="android:padding">@dimen/editTextAmountMonthAmount_padding</item>
+        <item name="android:background">@drawable/edit_text_design</item>
+
+    </style>
+
+</resources>
